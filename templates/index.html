@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Size Reducer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <div class="header">
+            <h1>Image Size Reducer</h1>
+            <p>Reduce image size without losing too much quality</p>
+        </div>
+
+        <div class="card">
+
+            <!-- Upload Section -->
+            <div class="upload-section">
+
+                <div class="upload-icon">
+                    🖼️
+                </div>
+
+                <h2>Upload your image</h2>
+
+                <p>JPG, JPEG, PNG or WEBP</p>
+
+                <label for="imageInput" class="upload-btn">
+                    Choose Image
+                </label>
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                >
+
+                <p id="fileName">No image selected</p>
+
+            </div>
+
+
+            <!-- Image Information -->
+            <div class="image-info" id="imageInfo">
+
+                <div class="preview-container">
+
+                    <img id="preview" src="" alt="Image Preview">
+
+                </div>
+
+                <div class="details">
+
+                    <div class="info-box">
+                        <span>File Name</span>
+                        <strong id="name">-</strong>
+                    </div>
+
+                    <div class="info-box">
+                        <span>Original Size</span>
+                        <strong id="originalSize">-</strong>
+                    </div>
+
+                    <div class="info-box">
+                        <span>Dimensions</span>
+                        <strong id="dimensions">-</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Target Size -->
+            <div class="target-section">
+
+                <h3>Target Size</h3>
+
+                <div class="target-input">
+
+                    <input
+                        type="number"
+                        id="targetSize"
+                        placeholder="Enter size"
+                        min="1"
+                    >
+
+                    <select id="sizeUnit">
+
+                        <option value="KB">KB</option>
+                        <option value="MB">MB</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Compress Button -->
+            <button id="compressBtn" class="compress-btn">
+
+                Compress Image
+
+            </button>
+
+
+            <!-- Result -->
+            <div class="result" id="result">
+
+                <h3>Compression Result</h3>
+
+                <div class="result-info">
+
+                    <p>
+                        Original:
+                        <strong id="resultOriginal">-</strong>
+                    </p>
+
+                    <p>
+                        Compressed:
+                        <strong id="resultCompressed">-</strong>
+                    </p>
+
+                    <p>
+                        Reduction:
+                        <strong id="reduction">-</strong>
+                    </p>
+
+                </div>
+
+                <button id="downloadBtn" class="download-btn">
+                    Download Image
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
